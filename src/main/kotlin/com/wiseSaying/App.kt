@@ -19,7 +19,7 @@ class App {
                 break
             }
             
-            val (command, params) = parseCommand(input)
+            val (command, params) = rq(input)
             
             when (command) {
                 "등록" -> controller.actionRegister()
@@ -36,7 +36,7 @@ class App {
         }
     }
 
-    private fun parseCommand(input: String): Pair<String, Map<String, String>> {
+    private fun rq(input: String): Pair<String, Map<String, String>> {
         if (!input.contains("?")) {
             return Pair(input, emptyMap())
         }
